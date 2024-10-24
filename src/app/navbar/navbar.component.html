@@ -1,0 +1,41 @@
+<nav class="bg-slate-100 dark:bg-gray-900 dark:border-gray-700 shadow">
+  <div class="nav-container grid md:grid-cols-3 mx-auto xl:grid-cols-10 gap-4 min-h-[100px]">
+    <div class="flex  nav-logo-container col-span-2">
+      <a href="" class="nav-logo-link flex">
+        <img src="/assets/logos/eagle-icon.png" alt="Logo" />
+        <span id="logo-title">RivenRoams</span>
+      </a>
+    </div>
+
+    <div class="col-span-6 nav-list-container">
+      <ul class="nav-list flex justify-evenly h-full p-4">
+        <ng-container *ngFor="let item of navbarList">
+          <a href="" class="transition duration-300 ease-in-out list-item-link">
+            <li class="nav-list-item flex flex-col justify-center text-center">
+              <fa-icon class="nav-list-icon" [icon]="item.icon"></fa-icon>
+              <span class="nav-list-title">{{ item.name }}</span>
+            </li>
+          </a>
+        </ng-container>
+      </ul>
+    </div>
+
+    <div class="col-span-2 rounded-lg  nav-tail">
+      <div class="nav-tail-container">
+        <div class="nav-user-container">
+          <fa-icon class="nav-user-icon" [icon]="user"></fa-icon>
+          <div class="user-dropdown-content">
+            <!-- <h1>Profile</h1> -->
+            <button>signup</button>
+            <button>login</button>
+          </div>
+        </div>
+        <div class="dark-mode-container">
+          <button>
+            <fa-icon class="nav-darkmode-icon" [icon]="darkMode"></fa-icon>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</nav>

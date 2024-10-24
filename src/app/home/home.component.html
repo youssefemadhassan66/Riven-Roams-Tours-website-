@@ -1,0 +1,19 @@
+<section class="home bg-slate-100">
+  <div class="home-container">
+    <div class="home-header">
+      <div class="slide-show-container">
+        <ng-container *ngFor="let slide of slides; index as i">
+          <div class="slide-show" *ngIf="i === currentIndex" [ngClass]="{}" [ngStyle]="{ 'background-image': 'url(' + slide.image + ')' }">
+            <div class="gradient-overlay">
+              <h4 class="heder-pre-title">{{ slide.preTitle }}</h4>
+              <h1 class="header-title">{{ slide.title }}</h1>
+              
+            </div>
+          </div>
+        </ng-container>
+        <a (click)="prevSlide()" class="prev">&#10094;</a>
+        <a (click)="nextSlide()" class="next">&#10095;</a>
+      </div>
+    </div>
+  </div>
+</section>
