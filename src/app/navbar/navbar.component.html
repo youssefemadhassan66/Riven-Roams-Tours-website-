@@ -9,9 +9,9 @@
 
     <div class="col-span-6 nav-list-container">
       <ul class="nav-list flex justify-evenly h-full p-4">
-        <ng-container *ngFor="let item of navbarList">
+        <ng-container *ngFor="let item of navbarList" class="flex">
           <a href="" class="transition duration-300 ease-in-out list-item-link">
-            <li class="nav-list-item flex flex-col justify-center text-center">
+            <li class="nav-list-item flex flex-col justify-center text-center" [routerLink]="'/'+item.name">
               <fa-icon class="nav-list-icon" [icon]="item.icon"></fa-icon>
               <span class="nav-list-title">{{ item.name }}</span>
             </li>
@@ -26,8 +26,8 @@
           <fa-icon class="nav-user-icon" [icon]="user"></fa-icon>
           <div class="user-dropdown-content">
             <!-- <h1>Profile</h1> -->
-            <button>signup</button>
-            <button>login</button>
+            <button routerLink="/signUp">signUp</button>
+            <button routerLink="/login">login</button>
           </div>
         </div>
         <div class="dark-mode-container">

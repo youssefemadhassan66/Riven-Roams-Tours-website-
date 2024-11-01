@@ -1,13 +1,22 @@
 import { AfterViewInit, Component, OnInit } from '@angular/core';
 import Swiper from 'swiper';
+import { faArrowRight, faGlobe, faMountainSun, faPersonHiking, faUmbrellaBeach, faBus, faUser } from '@fortawesome/free-solid-svg-icons';
+import { trigger, style, animate, transition, query, group } from '@angular/animations';
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
   styleUrl: './home.component.css',
+  animations: [
+    trigger('slideAnimation', [
+      transition(':enter', [style({ transform: 'translateX({{offset}}%)' }), animate('0.5s ease', style({ transform: 'translateX(0%)' }))], {
+        params: { offset: 100 },
+      }),
+      transition(':leave', [animate('0.5s ease', style({ transform: 'translateX({{offset}}%)' }))], { params: { offset: -100 } }),
+    ]),
+  ],
 })
 export class HomeComponent implements OnInit, AfterViewInit {
   constructor() {}
-
   ngOnInit(): void {}
 
   ngAfterViewInit() {
@@ -16,32 +25,75 @@ export class HomeComponent implements OnInit, AfterViewInit {
     }, 20000);
   }
 
-  isActive: boolean = true;
-  currentIndex: number = 0;
+  rightArrow = faArrowRight;
+  currentIndex = 0;
+  direction = 'next';
 
   slides: any = [
     {
       image: '/assets/photos/pexels-mo-eid-1268975-18876976.jpg',
       preTitle: 'Tours & Travels',
-      title: 'Your Journey Begins Now',
+      title: "Let's Discover The World Together",
     },
     {
       image: '/assets/photos/pexels-quang-nguyen-vinh-222549-2161449.jpg',
       preTitle: 'Tours & Travels',
-      title: 'Your Journey Begins Now',
+      title: 'Discover Amazing Places With Us',
     },
     {
-      image: '/assets/photos/pexels-asadphoto-2549017.jpg',
+      image: '/assets/photos/pexels-marek-piwnicki-3907296-26558807.jpg',
       preTitle: 'Tours & Travels',
       title: 'Your Journey Begins Now',
     },
   ];
 
-  prevSlide() {
-    this.currentIndex = this.currentIndex === 0 ? this.slides.length - 1 : this.currentIndex - 1;
+  nextSlide() {
+    this.direction = 'next';
+    this.currentIndex = (this.currentIndex + 1) % this.slides.length;
   }
 
-  nextSlide() {
-    this.currentIndex = this.currentIndex === this.slides.length - 1 ? 0 : this.currentIndex + 1;
+  prevSlide() {
+    this.direction = 'prev';
+    this.currentIndex = (this.currentIndex - 1 + this.slides.length) % this.slides.length;
   }
+
+  get offset() {
+    return this.direction === 'next' ? 100 : -100;
+  }
+
+  slideNav(index: number) {
+    this.direction = index > this.currentIndex ? 'next' : 'prev';
+    this.currentIndex = index;
+  }
+  // Home-about-section
+  featuresList = ['First Class Flights', '5 Star Accommodations', 'latest model vehicles', '24/7 services'];
+
+  // Home-services-section
+  cards: any = [
+    {
+      icon: faGlobe,
+      title: 'WorldWide Tours',
+      description: 'going to use a passage of Lorem Ipsum, you need to be',
+    },
+    {
+      icon: faBus,
+      title: 'Your Journey Begins Now',
+      description: 'going to use a passage of Lorem Ipsum, you need to be',
+    },
+    {
+      icon: faMountainSun,
+      title: 'Your Journey Begins Now',
+      description: 'going to use a passage of Lorem Ipsum, you need to be',
+    },
+    {
+      icon: faUmbrellaBeach,
+      title: 'Your Journey Begins Now',
+      description: 'going to use a passage of Lorem Ipsum, you need to be',
+    },
+    {
+      icon: faUser,
+      title: 'Your Journey Begins Now',
+      description: 'going to use a passage of Lorem Ipsum, you need to be',
+    },
+  ];
 }

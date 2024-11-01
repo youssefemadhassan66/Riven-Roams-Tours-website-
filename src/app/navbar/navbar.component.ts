@@ -19,7 +19,7 @@ export class NavbarComponent {
   user = faUserCircle;
   darkMode = faMoon;
   navbarList: any = [
-    { icon: faHome, name: 'Home' },
+    { icon: faHome, name: 'home' },
     { icon: faMapLocationDot, name: 'Tours' },
     { icon: faInfoCircle, name: 'About' },
     { icon: faPaperPlane, name: 'contact' },

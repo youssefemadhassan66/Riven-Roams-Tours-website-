@@ -1,0 +1,29 @@
+<section class="footer bg-slate-900">
+  <div class="footer-container">
+    <div class="footer-content">
+      <div class="footer-header">
+        <h1>Riven <span>Roams</span></h1>
+        <p>Sed ipsum clita tempor ipsum ipsum amet sit ipsum lorem amet labore rebum lorem ipsum dolor. No sed vero lorem dolor dolor</p>
+        <h4>Follow Us</h4>
+        <ul class="social-links">
+          <ng-container *ngFor="let link of socialLinks">
+            <li><fa-icon [icon]="link"></fa-icon></li>
+          </ng-container>
+        </ul>
+      </div>
+
+      <div class="footer-services">
+        <h1>Our Services</h1>
+        <ul class="services-list">
+          <ng-container *ngFor="let item of servicesList">
+            <li>
+              <fa-icon [icon]="AngleRight"></fa-icon>
+              <span>{{item}}</span>
+            </li>
+          </ng-container>
+        </ul>
+      </div>
+    </div>
+    <div class="copy-right"></div>
+  </div>
+</section>

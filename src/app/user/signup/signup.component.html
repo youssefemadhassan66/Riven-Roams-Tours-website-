@@ -1,0 +1,85 @@
+<section class="signUp bg-slate-100">
+  <div class="signUp-container">
+    <div class="signUp-box">
+      <div class="form-content">
+        <h1>Create an account</h1>
+        <form (ngSubmit)="onFormSubmit()" [formGroup]="signUpForm">
+          <div class="form-group">
+            <label for="">Username</label>
+            <input
+              type="text"
+              class="form__input"
+              formControlName="username"
+              placeholder="Username"
+              [ngClass]="{ invalid: signUpForm.get('username')?.invalid && signUpForm.get('username')?.touched }"
+            />
+            <div class="msg" *ngIf="signUpForm.get('username')?.invalid && signUpForm.get('username')?.touched">
+              <div *ngIf="signUpForm.get('username')?.errors?.['required']">*Username is required</div>
+              <div *ngIf="signUpForm.get('username')?.errors?.['minlength']">*Minlength is 6 characters</div>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="">Email</label>
+            <input
+              class="form__input"
+              type="text"
+              formControlName="email"
+              placeholder="Email"
+              [ngClass]="{ invalid: signUpForm.get('email')?.invalid && signUpForm.get('email')?.touched }"
+            />
+            <div class="msg" *ngIf="signUpForm.get('email')?.invalid && signUpForm.get('email')?.touched">
+              <div *ngIf="signUpForm.get('email')?.errors?.['required']">*Email is required</div>
+              <div *ngIf="signUpForm.get('email')?.errors?.['email']">*Email format is not correct</div>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="password">Password</label>
+            <input
+              class="form__input"
+              type="password"
+              placeholder="Enter password"
+              formControlName="password"
+              [ngClass]="{ invalid: signUpForm.get('password')?.invalid && signUpForm.get('password')?.touched }"
+            />
+            <div class="msg" *ngIf="signUpForm.get('password')!.invalid && signUpForm.get('password')!.touched">
+              <div *ngIf="signUpForm.get('password')?.errors?.['required']">*Password is required</div>
+              <div *ngIf="signUpForm.get('password')?.errors?.['passwordStrength']">
+                *password should Contain Capital letters & Numbers & Special Character
+              </div>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="retypePassword">retypePassword</label>
+            <input
+              class="form__input"
+              type="password"
+              placeholder="Enter password"
+              formControlName="retypePassword"
+              name="retypePassword"
+              [ngClass]="{ invalid: signUpForm.get('retypePassword')?.invalid && signUpForm.get('retypePassword')?.touched }"
+            />
+            <div class="msg" *ngIf="signUpForm.get('retypePassword')!.invalid && signUpForm.get('retypePassword')!.touched">
+              <div *ngIf="signUpForm.get('retypePassword')?.errors?.['required']">*Password is required</div>
+              <div *ngIf="signUpForm.errors?.['passwordMatches']">*password and retypePassword should be the same</div>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="file">Photo</label>
+            <input class="form__input" type="file" formControlName="photo" name="photo" />
+          </div>
+          <div class="form-group">
+            <input type="submit" value="submit" />
+          </div>
+        </form>
+      </div>
+      <div class="form-image">
+        <img src="/assets/logos/Moscow-pana.png" alt="" />
+      </div>
+    </div>
+
+  </div>
+</section>

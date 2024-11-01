@@ -1,19 +1,84 @@
 <section class="home bg-slate-100">
-  <div class="home-container">
-    <div class="home-header">
-      <div class="slide-show-container">
-        <ng-container *ngFor="let slide of slides; index as i">
-          <div class="slide-show" *ngIf="i === currentIndex" [ngClass]="{}" [ngStyle]="{ 'background-image': 'url(' + slide.image + ')' }">
-            <div class="gradient-overlay">
-              <h4 class="heder-pre-title">{{ slide.preTitle }}</h4>
-              <h1 class="header-title">{{ slide.title }}</h1>
-              
-            </div>
+  <div class="home-header">
+    <div class="slide-show-container">
+      <ng-container *ngFor="let slide of slides; index as i">
+        <div
+          class="slide-show"
+          *ngIf="i === currentIndex"
+          [@slideAnimation]="{ value: '', params: { offset: offset } }"
+          [ngStyle]="{ 'background-image': 'url(' + slide.image + ')' }"
+        >
+          <div class="gradient-overlay">
+            <h4 class="heder-pre-title">{{ slide.preTitle }}</h4>
+            <h1 class="header-title">{{ slide.title }}</h1>
+            <button class="header-button">Book Now</button>
           </div>
-        </ng-container>
-        <a (click)="prevSlide()" class="prev">&#10094;</a>
-        <a (click)="nextSlide()" class="next">&#10095;</a>
-      </div>
+        </div>
+      </ng-container>
+      <ul class="bullets-container">
+        <li class="bullet" *ngFor="let bullet of slides; index as j" [ngClass]="{ 'bullet-Active': currentIndex === j }" (click)="slideNav(j)"></li>
+      </ul>
     </div>
   </div>
 </section>
+
+<section class="home-about">
+  <div class="home-about-container grid grid-cols-2 gap-4">
+    <div class="home-about-image">
+      <div class="about-image-overlay"></div>
+      <img src="/assets/photos/pexels-wanderinglenses-25841505.jpg" alt="" />
+      <div class="about-image-content">
+        <h1>Riven Roams</h1>
+        <p>Create new memories</p>
+      </div>
+    </div>
+    <div class="home-about-content">
+      <div class="about-content-header">
+        <h4 class="about-content-title">About us</h4>
+        <h1>Welcome To <span class="colored-header">Revien Roams</span></h1>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni nemo eveniet deleniti reprehenderit, possimus at amet nihil corrupti neque
+          omnis consequatur
+        </p>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni nemo eveniet deleniti reprehenderit, possimus at amet nihil corrupti neque
+          omnis consequatur rem
+        </p>
+      </div>
+      <ul class="home-about-list">
+        <ng-container *ngFor="let feature of featuresList; index as i">
+          <div class="flex gap-3">
+            <fa-icon [icon]="rightArrow"></fa-icon>
+            <span>{{ feature }}</span>
+          </div>
+        </ng-container>
+      </ul>
+      <button class="home-about-button">Read More</button>
+    </div>
+  </div>
+</section>
+
+<section class="home-services">
+  <div class="home-services-container">
+    <div class="home-services-header">
+      <h1>Tours & Travel Services</h1>
+      <p>
+        It is a long established fact that a reader will be distracted by the readable content of a page when looking at it's layout. The point of
+        using Lorem Ipsum is that
+      </p>
+    </div>
+    
+    <ul class="services-card-container">
+      <ng-container *ngFor="let card of cards">
+        <div class="services-card">
+          <fa-icon [icon]="card.icon"></fa-icon>
+          <h1>{{card.title}}</h1>
+          <p>{{card.description}}</p>
+        </div>
+      </ng-container>
+    </ul>
+  </div>
+</section>
+
+
+

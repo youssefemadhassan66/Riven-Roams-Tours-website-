@@ -1,0 +1,98 @@
+.footer {
+  width: 100%;
+  height: 40vh;
+  overflow: hidden;
+}
+.footer-container {
+  width: 90%;
+  margin: auto;
+  height: 100%;
+}
+
+.footer-content {
+  width: 100%;
+  height: 85%;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  column-gap: 20px;
+  padding: 40px 0px;
+}
+.footer-header {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+.footer-header h1 {
+  font-size: 34px;
+  color: white;
+  font-family: 'poopins-bold';
+}
+.footer-header h1 span {
+  color: rgb(255, 233, 171);
+}
+.footer-header p {
+  font-size: 15px;
+  color: rgba(255, 255, 255, 0.7);
+}
+.footer-header h4 {
+  font-size: 24px;
+  color: rgb(255, 233, 171);
+  font-family: 'poopins-semi';
+}
+.social-links {
+  display: flex;
+  gap: 10px;
+}
+.social-links li {
+  width: 40px;
+  height: 40px;
+  border: 1px rgb(255, 233, 171) solid;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: all 1s ease;
+}
+fa-icon {
+  font-size: 18px;
+  color: rgb(255, 233, 171);
+}
+.copy-right {
+  width: 100%;
+  height: 15%;
+  border-top: 1px #ffffff73 solid;
+  transition: all 1s ease;
+}
+
+.social-links li:hover {
+  border: 1px #fff solid;
+}
+.social-links li:hover fa-icon {
+  color: #fff;
+  transition: all 1s ease;
+}
+.footer-services {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+.footer-services h1 {
+  font-size: 24px;
+  color: white;
+  font-family: 'poopins-semi';
+}
+.footer-services ul{
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.footer-services li
+{
+  display: flex;
+  gap: 8px;
+  color: white;
+}
+.footer-services li span{
+  font-size: 18px;
+  cursor: pointer;
+
+}
