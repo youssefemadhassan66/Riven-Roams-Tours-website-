@@ -90,4 +90,8 @@ export class AuthServicesService {
     const token = this.tokenSubject.value;
     return token !== null && !this.isTokenExpired(token);
   }
+
+  getToken(): Observable<string | null> {
+    return this.tokenSubject.asObservable();
+  }
 }

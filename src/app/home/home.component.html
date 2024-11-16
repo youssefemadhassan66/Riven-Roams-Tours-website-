@@ -67,18 +67,126 @@
         using Lorem Ipsum is that
       </p>
     </div>
-    
+
     <ul class="services-card-container">
       <ng-container *ngFor="let card of cards">
         <div class="services-card">
-          <fa-icon [icon]="card.icon"></fa-icon>
-          <h1>{{card.title}}</h1>
-          <p>{{card.description}}</p>
+          <img [src]="card.icon" alt="" />
+          <h1>{{ card.title }}</h1>
+          <p>{{ card.description }}</p>
         </div>
       </ng-container>
     </ul>
   </div>
 </section>
 
+<section class="video-section">
+  <video autoplay muted loop playsinline class="background-video">
+    <source [src]="video" type="video/mp4" />
+    Your browser does not support the video tag.
+  </video>
+  <div class="video-gradient-overlay"></div>
+  <div class="semicircle"></div>
+  <div class="video-section-content">
+    <fa-icon [icon]="globe"></fa-icon>
+    <div>
+      <h1>Best in Travel</h1>
+      <p>2025</p>
+      <button>Discover the World</button>
+    </div>
+  </div>
+</section>
 
+<section class="home-tours" *ngIf="toursData.length > 0">
+  <div class="home-tours-container">
+    <div class="home-tours-box">
+      <div class="home-tours-header">
+        <h1>Our Tour <span class="colored-header">Offers</span></h1>
+      </div>
+      <div class="swiper-container">
+        <ul class="home-tours-list swiper-wrapper">
+          <li class="tour-card swiper-slide" *ngFor="let Tour of toursData">
+            <div class="card-header">
+              <div class="card-image">
+                <div class="card-overlay"></div>
+                <img [src]="ToursPhotoUrl + Tour.imageCover" alt="" />
+              </div>
+            </div>
+            <div class="card-body">
+              <h1>{{ Tour.name }}</h1>
+              <p>{{ Tour.summary }}</p>
+              <ul class="tour-detail-list">
+                <ng-container *ngFor="let item of icons; index as i">
+                  <li>
+                    <fa-icon class="card-list-icon" [icon]="item"></fa-icon>
+                    <h5 *ngIf="i === 0">{{ Tour.startLocation.description }}</h5>
+                    <h5 *ngIf="i === 1">{{ formatDate(Tour.startDates[0]) }}</h5>
+                    <h5 *ngIf="i === 2">{{ Tour.locations.length }} stages</h5>
+                    <h5 *ngIf="i === 3">{{ Tour.maxGroupSize }} person</h5>
+                  </li>
+                </ng-container>
+              </ul>
+              <h3>Difficulty : {{ Tour.difficulty }}</h3>
+            </div>
+            <div class="card-footer">
+              <div class="card-footer-content">
+                <h1>${{ Tour.price }}</h1>
+                <h3>
+                  <span>{{ Tour.ratingsAverage }}</span> Rating({{ Tour.ratingQuantity }})
+                </h3>
+              </div>
+              <button>Details</button>
+            </div>
+          </li>
+        </ul>
+        <div class="swiper-pagination"></div>
+      </div>
+    </div>
+  </div>
+</section>
 
+<section class="reviews">
+  <div class="reviews-container">
+    <h1>Reviews</h1>
+    <owl-carousel-o [options]="customOptions">
+      <ng-container class="reviews-track" *ngFor="let review of ReviewData; index as i">
+        <ng-template carouselSlide [id]="i.toString()">
+          <div class="review-item">
+          <img [src]="UsersPhotoUrl + review.user.photo" alt="Card Image" draggable="false" class="review-image" />
+          <div class="review-card-content">
+            <h1 class="review-title">{{ review.user.name }}</h1>
+            <p class="review-disc">{{ review.review }}</p>
+            <div class="blog-button"></div>
+          </div>
+          <!-- <img [src]="UsersPhotoUrl + slide.user.photo" [alt]="slide.user.name" /> -->
+          </div>
+        </ng-template>
+
+      </ng-container>
+    </owl-carousel-o>
+  </div>
+</section>
+
+<!-- <section class="reviews">
+  <div class="reviews-container">
+    <h1>Reviews</h1>
+    <div
+      class="reviews-wrapper"
+      (mousedown)="startDragging($event)"
+      (mouseup)="stopDragging()"
+      (mouseleave)="stopDragging()"
+      (mousemove)="onDrag($event)"
+    >
+      <div class="reviews-track" [ngStyle]="{ transform: 'translateX(' + translateX + 'px)' }">
+        <div class="review-item" *ngFor="let review of ReviewData">
+          <img [src]="UsersPhotoUrl + review.user.photo" alt="Card Image" draggable="false" />
+          <div class="review-card-content" (mousedown)="$event.stopPropagation()">
+            <h1 class="review-title">{{ review.user.name }}</h1>
+            <p class="review-disc">{{ review.review }}</p>
+            <div class="blog-button"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section> -->

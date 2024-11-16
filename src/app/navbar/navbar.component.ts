@@ -20,9 +20,9 @@ export class NavbarComponent {
   darkMode = faMoon;
   navbarList: any = [
     { icon: faHome, name: 'home' },
-    { icon: faMapLocationDot, name: 'Tours' },
-    { icon: faInfoCircle, name: 'About' },
+    { icon: faMapLocationDot, name: 'tours' },
+    { icon: faCompass, name: 'about' },
     { icon: faPaperPlane, name: 'contact' },
-    { icon: faCompass, name: 'services' },
+
   ];
 }

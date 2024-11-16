@@ -1,0 +1,29 @@
+.tours-header {
+  width: 100%;
+  height: 90vh;
+}
+.t-container{
+  width: 80%;
+  height: 100%;
+  margin: auto;
+}
+.header-content {
+  text-align: center;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.header-content h1 {
+  font-size: 4rem;
+  font-family: 'Poopins-semi';
+  background: linear-gradient(109.6deg, rgb(17, 151, 147) 33.2%, rgb(154, 214, 212) 70.4%, rgb(255, 233, 171) 100.2%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+
+}
+.header-content p{
+  font-size: 15px;
+}

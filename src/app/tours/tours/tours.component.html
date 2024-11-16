@@ -1,0 +1,88 @@
+<section class="filters">
+  <div class="filter-container">
+    <div class="filter-content">
+      <input type="text" placeholder="Search....." />
+      <div class="filter-sort">
+        <button class="filter-button" (click)="openFilters()"><fa-icon class="card-list-icon" [icon]="filterIcon"></fa-icon> Filters</button>
+        <div class="sort-option">
+          <select name="sort" id="sort-dropDown" (change)="onSortChange($event)">
+            <option [value]="item.value" *ngFor="let item of sortOptions">{{ item.label }}</option>
+          </select>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<div class="modal-overlay" *ngIf="showModal">
+  <div class="modal-container">
+    <h2>FILTER</h2>
+    <form (ngSubmit)="onFilterSubmit()" [formGroup]="filterForm">
+      <div class="form-group">
+        <label for="difficulty">Difficulty:</label>
+        <select id="difficulty" formControlName="selectedDifficulty">
+          <option *ngFor="let option of difficultyOptions" [value]="option.value">{{ option.label }}</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="rating">Rating:</label>
+        <select id="rating" formControlName="selectedRating">
+          <option *ngFor="let option of ratingOptions" [value]="option.value">{{ option.label }}</option>
+        </select>
+      </div>
+      <div class="range-slider">
+        <input type="range" id="priceRange" min="0" max="2000" value="500" (input)="updatePriceValue()" formControlName="selectedPrice" />
+      </div>
+      <div class="range-value">
+        <label
+          >Max Price: <span id="maxPriceValue">{{ maxPrice }}</span></label
+        >
+      </div>
+
+      <input type="submit" class="submit-btn" value="Submit" />
+    </form>
+  </div>
+</div>
+
+<section class="tours">
+  <div class="tours-container">
+    <ul class="tours-list">
+      <li class="tour-card" *ngFor="let Tour of toursData;index as j">
+        <div class="card-header">
+          <div class="card-image">
+            <div class="card-overlay"></div>
+            <img [src]="ToursPhotoUrl + Tour.imageCover" alt="" />
+          </div>
+        </div>
+        <div class="card-body">
+          <h1>{{ Tour.name }}</h1>
+          <p>{{ Tour.summary }}</p>
+          <ul class="tour-detail-list">
+            <li *ngFor="let item of icons; index as i">
+              <fa-icon class="card-list-icon" [icon]="item"></fa-icon>
+              <h5 *ngIf="i === 0">{{ Tour.startLocation.description }}</h5>
+              <h5 *ngIf="i === 1">{{ formatDate(Tour.startDates[0]) }}</h5>
+              <h5 *ngIf="i === 2">{{ Tour.locations.length }} stages</h5>
+              <h5 *ngIf="i === 3">{{ Tour.maxGroupSize }} person</h5>
+            </li>
+          </ul>
+          <h3>Difficulty : {{ Tour.difficulty }}</h3>
+        </div>
+        <div class="card-footer">
+          <div class="card-footer-content">
+            <h1>${{ Tour.price }}</h1>
+            <h3>
+              <span>{{ Tour.ratingsAverage }}</span> Rating({{ Tour.ratingQuantity }})
+            </h3>
+          </div>
+          <button (click)="navTourDetail(j)">Details</button>
+        </div>
+      </li>
+    </ul>
+  </div>
+</section>
+
+<div class="pagination-controls">
+  <button id="page-button" (click)="prev()" [disabled]="pageIndex <= 1">Previous</button>
+  <button id="page-button" (click)="setPage(page)" [class.active]="page === pageIndex" *ngFor="let page of getPageNumbers()">{{ page }}</button>
+  <button id="page-button" (click)="next()" [disabled]="pageIndex >= totalPageCounts">Next</button>
+</div>

@@ -1,0 +1,317 @@
+.filters{
+  width: 100%;
+  height: 20vh;
+}
+.filter-container{
+  padding: 50px 0px;
+  width: 90%;
+  margin: auto;
+}
+.filter-content{
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+.filter-sort{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}
+.filter-button{
+  padding: 0.5rem 0.6rem;
+  width: 100px;
+  background-color:  rgb(17, 151, 147);
+  color: white;
+  border-radius: 5px;
+}
+
+.sort-option{
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  border: 1px solid #e6e6e6af;
+}
+
+
+
+
+
+
+
+
+
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modal-container {
+  background: #ffffff;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  max-width: 400px;
+  width: 100%;
+}
+
+h2 {
+  color: #2ebf74;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.form-group {
+  margin-bottom: 15px;
+}
+
+label {
+  display: block;
+  font-size: 14px;
+  color: #333;
+  margin-bottom: 5px;
+}
+
+select {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  font-size: 14px;
+}
+
+.submit-btn {
+  width: 100%;
+  background-color: #2ebf74;
+  color: white;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.submit-btn:hover {
+  background-color: #24a164;
+}
+
+.range-slider input[type="range"] {
+  -webkit-appearance: none;
+  width: 100%;
+  height: 8px;
+  border-radius: 5px;
+  background: linear-gradient(to right, rgb(17, 151, 147) 50%, #cbd5e1 50%);
+  outline: none;
+  margin: 10px 0;
+  transition: all 0.3s ease;
+}
+
+.range-slider input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 20px;
+  height: 20px;
+  background: rgb(17, 151, 147);
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.range-slider input[type="range"]::-moz-range-thumb {
+  width: 20px;
+  height: 20px;
+  background: rgb(17, 151, 147);
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+
+
+/* Tours section */
+
+.tours{
+  width: 100%;
+  margin: 40px 0px;
+}
+.tours-container{
+  width: 90%;
+  margin: 0 auto;
+}
+
+.home-tours-box{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+.home-tours-header{
+  width: 100%;
+  text-align: center;
+}
+.home-tours-header h1{
+  font-size: 55px;
+  font-family: 'poopins-bold';
+}
+.home-tours-header p {
+  color: rgb(182, 165, 118);
+    font-size: 22px;
+  font-family: 'poopins-semi';
+
+}
+.tours-list{
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  column-gap: 1.5rem;
+  row-gap: 1.5rem;
+}
+.card-header{
+  position: relative;
+}
+.tour-card{
+  width: 500px;
+  height: 700px;
+  box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
+    transition: all 0.5s ease;
+}
+.tour-card:hover{
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+.card-header{
+  position: relative;
+  width: 100%;
+
+}
+.card-header img{
+  width: 100%;
+  height: 50%;
+
+}
+.card-overlay{
+
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8));
+  opacity: 0.5;
+  transition: opacity 1s ease;
+  z-index: 1;
+}
+.card-body{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 30px;
+}
+.card-body h1{
+  font-size: 1.3rem;
+  font-family: 'poopins-bold';
+}
+
+.card-body p{
+  color: #1e293b85;
+}
+.tour-detail-list{
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 15px;
+
+}
+.tour-detail-list li{
+  display: flex;
+  gap: 5px;
+}
+.tour-detail-list li fa-icon{
+  font-size: 1.2rem;
+  color:  rgb(17, 151, 147);
+
+}
+
+.card-footer{
+  padding: 0px 30px;
+  display: flex;
+  justify-content: space-between;
+}
+.card-footer-content{
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.card-footer-content h1{
+  font-size: 18px;
+  font-family: 'poopins-bold';
+}
+.card-footer-content h3{
+  font-size: 15px;
+  font-family: 'poopins-semi';
+}
+
+.card-footer button{
+  color: #fff;
+  background-color:  rgb(17, 151, 147);
+  padding: 5px;
+  width: 120px;
+  transition: all 0.3s ease;
+}
+.card-footer button:hover {
+  background-color:  rgb(15, 121, 117);
+  color: white;
+}
+.card-footer button:hover .card-overlay{
+  opacity: 1;
+}
+
+.pagination-controls{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  padding: 20px 0px;
+}
+
+
+#page-button{
+  border-radius: 5px;
+  border: 2px solid #e2e8f0;
+  color: #94a3b8;
+  padding: 0.5rem 1.5rem;
+  transition: all 0.2s ease;
+
+}
+#page-button:hover{
+  background-color: #94a3b8;
+  color: #f1f5f9;
+  transition: all 0.2s ease;
+}
+
+
+#page-button:disabled{
+  background-color: #e2e8f0;
+  color: #cbd5e1;
+}
+#page-button:disabled:hover{
+  background-color: #e2e8f0;
+  color: #cbd5e1;
+}
+
+
+.pagination-controls #page-button.active {
+  font-weight: bold;
+  background-color: #475569;
+  color: #f1f5f9;
+}
+.pagination-controls #page-button.active :hover{
+  font-weight: bold;
+  background-color: #475569;
+  color: #94a3b8;
+}
