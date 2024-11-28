@@ -1,27 +1,47 @@
-# ClientSide
+Riven Roams - Tour Website
+Overview
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 18.1.1.
+Riven Roams is a secure and dynamic web platform designed to streamline the tour booking experience. It offers features for both regular users and administrators, making it a comprehensive solution for managing and exploring tours.
+Features
+User Features
 
-## Development server
+    Browse Tours: Users can explore a variety of tours with detailed descriptions and options.
+    User Authentication:
+        Secure sign-up and login functionality using token-based authentication.
+        Session management using JWT tokens securely stored in local storage.
+    Tour Booking: Users can book tours and manage their bookings effortlessly.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+Admin Features
 
-## Code scaffolding
+    Dashboard:
+        Full CRUD operations for managing tours (create, view, edit, delete).
+        Full CRUD operations for managing users.
+    Secure Routes:
+        Role-based access control for admin-specific actions.
+        Protected admin dashboard and API endpoints using JWT authentication.
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+Static Pages
 
-## Build
+    About Page: Information about the platform and its purpose.
+    Contact Page: Contact details and form for user inquiries.
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+Security Highlights
 
-## Running unit tests
+    Token-Based Authentication: Ensures secure user sessions.
+    Protected API Endpoints: Admin and user routes are secured with middleware for token verification.
+    Local Storage: Safely stores JWT tokens for maintaining user sessions.
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+Technology Stack
 
-## Running end-to-end tests
+    Front-End:
+        HTML, CSS, JavaScript
+        Framework: Angular
+        Responsive design using Bootstrap
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+    Back-End:
+        Node.js with Express.js for RESTful APIs
+        MongoDB for database management
 
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+    Authentication:
+        jsonwebtoken for secure token generation and validation
+        bcryptjs for password hashing
