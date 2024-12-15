@@ -24,7 +24,6 @@ export class LoginComponent implements OnInit {
   }
 
   onFormSubmit() {
-    console.log(this.loginForm.value);
     const { email, password } = this.loginForm.value;
     this._auth.login(email, password).subscribe({
       next: () => this._router.navigate(['/home']),

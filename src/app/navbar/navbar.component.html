@@ -1,6 +1,6 @@
 <nav class="bg-slate-100 dark:bg-gray-900 dark:border-gray-700 shadow">
   <div class="nav-container grid md:grid-cols-3 mx-auto xl:grid-cols-10 gap-4 min-h-[100px]">
-    <div class="flex  nav-logo-container col-span-2">
+    <div class="flex nav-logo-container col-span-2">
       <a href="" class="nav-logo-link flex">
         <img src="/assets/logos/eagle-icon.png" alt="Logo" />
         <span id="logo-title">RivenRoams</span>
@@ -10,17 +10,17 @@
     <div class="col-span-6 nav-list-container">
       <ul class="nav-list flex justify-evenly h-full p-4">
         <ng-container *ngFor="let item of navbarList" class="flex">
-          <a  class="transition duration-300 ease-in-out list-item-link" [routerLink]="'/'+item.name">
-            <li class="nav-list-item flex flex-col justify-center text-center"  >
+          <a class="transition duration-300 ease-in-out list-item-link" [routerLink]="'/' + item.name">
+            <li class="nav-list-item flex flex-col justify-center text-center">
               <fa-icon class="nav-list-icon" [icon]="item.icon"></fa-icon>
-              <span class="nav-list-title" style="text-transform: capitalize;">{{ item.name }}</span>
+              <span class="nav-list-title" style="text-transform: capitalize">{{ item.name }}</span>
             </li>
           </a>
         </ng-container>
       </ul>
     </div>
-
-    <div class="col-span-2 rounded-lg  nav-tail">
+    <!-- If not Authenticated -->
+    <div *ngIf="IsLoggedIn !== true" class="col-span-2 rounded-lg nav-tail">
       <div class="nav-tail-container">
         <div class="nav-user-container">
           <fa-icon class="nav-user-icon" [icon]="user"></fa-icon>
@@ -34,6 +34,25 @@
           <button>
             <fa-icon class="nav-darkmode-icon" [icon]="darkMode"></fa-icon>
           </button>
+        </div>
+      </div>
+    </div>
+    <!-- If  Authenticated -->
+    <div *ngIf="IsLoggedIn === true" class="col-span-2 rounded-lg nav-tail">
+      <div class="nav-tail-container">
+
+        <div class="dark-mode-container">
+          <button>
+            <fa-icon class="nav-darkmode-icon" [icon]="darkMode"></fa-icon>
+          </button>
+        </div>
+        <div class="dark-mode-container">
+          <button (click)="onLogout()">
+            <fa-icon class="nav-darkmode-icon" [icon]="logOut"></fa-icon>
+          </button>
+        </div>
+        <div class="nav-user-container">
+          <img [src]="UsersPhotoUrl + useData.photo" alt="">
         </div>
       </div>
     </div>

@@ -1,0 +1,43 @@
+<app-nav-dashboard></app-nav-dashboard>
+<body>
+
+
+<section class="slide-dashboard bg-slate-100">
+  <h1>User DashBoard</h1>
+  <ul class="dashboard-list">
+    <li *ngFor="let side of side_dashBoard ; index as i">
+      <button (click)="navigateSideBar(side.value)">{{ side.name }}</button>
+    </li>
+  </ul>
+</section>
+<section class="tour-list">
+  <h1>Tour List</h1>
+  <p>No of Users : {{ users.length }}</p>
+  <ul class="tour-list-container">
+    <li *ngFor="let user of users; index as i" id="tour-item">
+      <div class="tour-content flex">
+        <span>{{ i + 1 }}- </span>
+        <!-- <img [src]="ToursPhotoUrl+tour.imageCover" alt=""> -->
+        <h3>{{ user.name }}</h3>
+
+      </div>
+      <h1>Mail : {{user.email}}</h1>
+      <div class="tour-buttons">
+        <button (click)="navigateEditModel(i)" class="bg-white hover:bg-gray-100 text-gray-800 border border-gray-400 rounded shadow">Edit</button>
+        <button id="view" class="text-white rounded" (click)="navigateViewModel(i)">View</button>
+        <button id="danger" (click)="onDeleteClick(i)">Delete</button>
+      </div>
+    </li>
+    <div *ngIf="DeleteConfirmation" class="modal-overlay">
+      <div class="confirm-Delete-container">
+        <p>Are you sure you want to delete this Tour?</p>
+        <div>
+          <button class="bg-white hover:bg-gray-100 text-gray-800 border border-gray-400 rounded shadow" (click)="confirmDelete()">Yes</button>
+          <button class="bg-white hover:bg-gray-100 text-gray-800 border border-gray-400 rounded shadow" (click)="cancelDelete()">No</button>
+        </div>
+      </div>
+    </div>
+  </ul>
+</section>
+</body>
+<app-footer></app-footer>

@@ -50,14 +50,17 @@
 }
 .header-button {
   color: #fff;
-  background-color: transparent;
+  background-color: rgba(255, 255, 255, 0.2);
+
   padding: 1.5em 2em;
-  border: 0.1rem solid rgb(255, 233, 171);
+  border: 0.1rem solid #ffffffad;
   width: 250px;
   transition: all 0.3s ease;
+  backdrop-filter: blur(3px);
 }
 .header-button:hover {
-  background-color: rgb(255, 233, 171);
+  background-color: rgba(255, 255, 255,0.05);
+  backdrop-filter: blur(1px);
   color: white;
 }
 .bullets-container {

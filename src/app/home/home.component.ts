@@ -42,7 +42,7 @@ export class HomeComponent implements OnInit, AfterViewInit {
       console.log(response);
     });
 
-    this.video = Math.random() > 0.5 ? '/assets/videos/bit-landscape-1.mp4' : '/assets/videos/bit-landscape-5.mp4';
+    this.video = Math.random( ) > 0.5 ? '/assets/videos/bit-landscape-1.mp4' : '/assets/videos/bit-landscape-5.mp4';
   }
   ngAfterViewInit(): void {
     setInterval(() => {

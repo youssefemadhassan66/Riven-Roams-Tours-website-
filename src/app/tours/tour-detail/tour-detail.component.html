@@ -1,2 +1,64 @@
-<p>tour-detail works!</p>
+<app-navbar></app-navbar>
 
+<section class="tour-image" [ngStyle]="{ 'background-image': 'url(' + ToursPhotoUrl + tourData.imageCover + ')' }">
+  <div class="gradient-overlay">
+    <h1 id="tour-name">{{ tourData.name }}</h1>
+    <p class="colored-header">
+      <span>Duration: {{ tourData.duration }} Days</span> <span>Address: {{ tourData.startLocation.address }}</span>
+    </p>
+  </div>
+</section>
+
+<section class="tour-detail bg-slate-100">
+  <div class="tour-detail-container">
+    <div class="detail">
+      <div class="details-container">
+        <h1>Tour Details</h1>
+        <div class="facts">
+          <h3><span>Next Date</span> {{ formatDate(tourData.startDates[0]) }}</h3>
+          <h3><span>Difficulty </span> {{ tourData.difficulty }}</h3>
+          <h3><span>Participants</span> {{ tourData.maxGroupSize }}</h3>
+          <h3><span>Rating</span> {{ tourData.ratingsAverage }}/5</h3>
+        </div>
+        <h1>Our Tour guides</h1>
+        <ul class="guids-list">
+          <li class="guid" *ngFor="let guide of tourData.guides">
+            <img [src]="UsersPhotoUrl + guide.photo" alt="" />
+            <h3>{{ guide.role }}</h3>
+            <p>{{ guide.name }}</p>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="summary">
+      <h2>{{ tourData.name }} overview</h2>
+      <p>
+        <span>{{ tourData.summary }}</span>
+        <span>{{ tourData.description }}</span>
+      </p>
+    </div>
+  </div>
+</section>
+
+
+<section class="imgaes-section bg-slate-100">
+  <h1>Tour Gallery</h1>
+  <div>
+    <owl-carousel-o [options]="customOptions" class="bg-slate-100">
+      <ng-container *ngFor="let slide of tourData.images; index as i" class="bg-slate-100">
+        <ng-template carouselSlide [id]="i.toString()" class="bg-slate-100">
+          <img [src]="ToursPhotoUrl + slide" [alt]="slide" />
+        </ng-template>
+      </ng-container>
+    </owl-carousel-o>
+  </div>
+</section>
+
+
+<section class="book-now">
+  <div></div>
+</section>
+
+<div id="map"></div>
+
+<app-footer></app-footer>

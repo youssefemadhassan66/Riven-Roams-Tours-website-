@@ -1,0 +1,131 @@
+.tour-Edit {
+  width: 100%;
+}
+.container {
+  width: 95%;
+  margin: 60px auto;
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+}
+.container h1 {
+  margin-right: 50px;
+  font-family: 'poopins-bold';
+  font-size: 25px;
+}
+form {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  column-gap: 30px;
+  row-gap: 20px;
+  width: 95%;
+  margin-left: 20px;
+}
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+.form-group label {
+  font-size: 15px;
+  margin-bottom: 10px;
+  margin-left: 4px;
+}
+.form__input {
+  font-size: 1rem;
+  padding: 0.7rem 1rem;
+  width: 90%;
+  background-color: #fff;
+  border-radius: 4px;
+  border: #f1f5f9 solid 2px;
+  -webkit-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+label > span {
+  font-size: 0.8rem;
+  font-family: 'poopins-bold';
+  text-transform: capitalize;
+}
+textarea {
+  border-radius: 4px;
+  border: #f1f5f9 solid 2px;
+}
+input[type='submit'] {
+  max-width: 150px;
+  padding: 1rem 2.25rem;
+  color: white;
+  background-color: rgb(17, 151, 147);
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: all 1s ease;
+}
+
+.img-cover {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+}
+
+.form-array-list{
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.form-button{
+  padding: 0.6rem 1.25rem;
+  width: 200px;
+}
+
+#danger{
+  background-color:  #d9534f ;
+  color: #f1f5f9;
+  width: 120px;
+  border-radius: 2px;
+  transition: all 0.5s ease;
+}
+#danger:hover{
+  background-color: #c9302c ;
+}
+
+
+input[type='submit']:hover {
+  max-width: 320px;
+  background-color: rgb(12, 104, 101);
+}
+input[type='file'] {
+  border: none;
+}
+input[type='file']::file-selector-button {
+  border-radius: 4px;
+  padding: 0 16px;
+  height: 40px;
+  cursor: pointer;
+  background-color: white;
+  border: 1px solid rgba(0, 0, 0, 0.16);
+  box-shadow: 0px 1px 0px rgba(0, 0, 0, 0.05);
+  margin-right: 16px;
+  transition: background-color 200ms;
+}
+
+/* file upload button hover state */
+input[type='file']::file-selector-button:hover {
+  background-color: #f3f4f6;
+}
+
+/* file upload button active state */
+input[type='file']::file-selector-button:active {
+  background-color: #e5e7eb;
+}
+
+.form__input:focus {
+  outline: none;
+  border: 2px solid rgb(214, 194, 139);
+}
+
+.form__input::placeholder {
+  color: #ccc;
+}

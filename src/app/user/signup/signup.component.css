@@ -111,7 +111,7 @@ input[type="file"]::file-selector-button:active {
 
 .form__input:focus {
   outline: none;
-  border-bottom: 3px solid rgb(214, 194, 139);
+  border-bottom: 1px solid rgb(214, 194, 139);
 }
 
 .form__input::placeholder {
@@ -130,7 +130,7 @@ input[type="file"]::file-selector-button:active {
   height: auto;
 }
 .invalid {
-  border-bottom: 3px solid rgb(244, 17, 17);
+  border-bottom: 1px solid rgb(244, 17, 17);
 }
 .msg {
   margin-top: 10px;

@@ -1,0 +1,187 @@
+<app-nav-dashboard></app-nav-dashboard>
+<section class="tour-edit">
+  <div class="container mx-auto px-4">
+    <h1 class="text-3xl font-bold mb-6">Create new Tour</h1>
+    <form [formGroup]="tourForm" (ngSubmit)="onSubmit()">
+      <!-- Tour Name -->
+      <div class="mb-4">
+        <label for="name" class="block text-sm font-medium mb-1">Tour Name</label>
+        <input
+          id="name"
+          type="text"
+          class="form__input w-full border-gray-300 rounded-md shadow-sm focus:ring focus:ring-indigo-200"
+          formControlName="name"
+        />
+      </div>
+
+      <!-- Summary -->
+      <div class="mb-4">
+        <label for="summary" class="block text-sm font-medium mb-1">Summary</label>
+        <input
+          id="summary"
+          type="text"
+          class="form__input w-full border-gray-300 rounded-md shadow-sm focus:ring focus:ring-indigo-200"
+          formControlName="summary"
+        />
+      </div>
+
+      <!-- Duration -->
+      <div class="mb-4">
+        <label for="duration" class="block text-sm font-medium mb-1">Duration</label>
+        <input
+          id="duration"
+          type="number"
+          class="form__input w-full border-gray-300 rounded-md shadow-sm focus:ring focus:ring-indigo-200"
+          formControlName="duration"
+        />
+      </div>
+
+      <!-- Price -->
+      <div class="mb-4">
+        <label for="price" class="block text-sm font-medium mb-1">Price</label>
+        <input
+          id="price"
+          type="number"
+          class="form__input w-full border-gray-300 rounded-md shadow-sm focus:ring focus:ring-indigo-200"
+          formControlName="price"
+        />
+      </div>
+
+      <!-- Max Group Size -->
+      <div class="mb-4">
+        <label for="maxGroupSize" class="block text-sm font-medium mb-1">Max Group Size</label>
+        <input
+          id="maxGroupSize"
+          type="number"
+          class="form__input w-full border-gray-300 rounded-md shadow-sm focus:ring focus:ring-indigo-200"
+          formControlName="maxGroupSize"
+        />
+      </div>
+
+      <!-- Image Cover -->
+      <div class="mb-4">
+        <label for="imageCover" class="block text-sm font-medium mb-1">Image Cover</label>
+        <input
+          id="imageCover"
+          type="file"
+          class="form__input w-full border-gray-300 rounded-md shadow-sm focus:ring focus:ring-indigo-200"
+          (change)="onFileChange($event)"
+          formControlName="imageCover"
+        />
+      </div>
+
+      <!-- Difficulty -->
+      <div class="mb-4">
+        <label for="difficulty" class="block text-sm font-medium mb-1">Difficulty</label>
+        <select
+          id="difficulty"
+          class="form__input w-full border-gray-300 rounded-md shadow-sm focus:ring focus:ring-indigo-200"
+          formControlName="difficulty"
+        >
+          <option value="">Select one</option>
+          <option value="easy">Easy</option>
+          <option value="medium">Medium</option>
+          <option value="difficult">Difficult</option>
+        </select>
+      </div>
+
+      <!-- Description -->
+      <div class="mb-4">
+        <label for="description" class="block text-sm font-medium mb-1">Description</label>
+        <textarea
+          id="description"
+          class="form__input w-full border-gray-300 rounded-md shadow-sm focus:ring focus:ring-indigo-200"
+          formControlName="description"
+          rows="5"
+        ></textarea>
+      </div>
+
+      <!-- Images -->
+      <div class="mb-4">
+        <label class="block text-sm font-medium mb-1">Images</label>
+        <div formArrayName="images">
+          <div *ngFor="let image of images.controls; let i = index" class="flex items-center mb-2">
+            <input
+              type="file"
+              class="form__input border-gray-300 rounded-md shadow-sm focus:ring focus:ring-indigo-200"
+              (change)="onFilesChange($event, i)"
+              [formControlName]="i"
+            />
+            <button type="button" class="ml-2 text-red-600" (click)="removeImage(i)">Remove</button>
+          </div>
+        </div>
+        <button type="button" class="mt-2 text-blue-600" (click)="addImage()">Add Image</button>
+      </div>
+
+      <!-- Start Dates -->
+      <div class="mb-4">
+        <label class="block text-sm font-medium mb-1">Start Dates</label>
+        <div formArrayName="startDates">
+          <div *ngFor="let date of startDates.controls; let i = index" class="flex items-center mb-2">
+            <input type="date" class="form__input border-gray-300 rounded-md shadow-sm focus:ring focus:ring-indigo-200" formControlName="i" />
+            <button type="button" class="ml-2 text-red-600" (click)="removeDate(i)">Remove</button>
+          </div>
+        </div>
+        <button type="button" class="mt-2 text-blue-600" (click)="addDate()">Add Date</button>
+      </div>
+
+      <!-- Locations -->
+      <div class="mb-4">
+        <label class="block text-sm font-medium mb-1">Locations</label>
+        <div formArrayName="locations">
+          <div *ngFor="let location of locations.controls; let i = index" class="mb-3">
+            <div [formGroupName]="i">
+              <label for="address-{{ i }}" class="block text-sm font-medium mb-1">Address</label>
+              <input
+                id="address-{{ i }}"
+                type="text"
+                class="form__input w-full border-gray-300 rounded-md shadow-sm focus:ring focus:ring-indigo-200"
+                formControlName="address"
+              />
+
+              <label for="description-{{ i }}" class="block text-sm font-medium mb-1">Description</label>
+              <input
+                id="description-{{ i }}"
+                type="text"
+                class="form__input w-full border-gray-300 rounded-md shadow-sm focus:ring focus:ring-indigo-200"
+                formControlName="description"
+              />
+
+              <label class="block text-sm font-medium mb-1">Coordinates</label>
+              <div formArrayName="coordinates" class="flex space-x-2">
+                <input
+                  type="number"
+                  class="form__input w-1/2 border-gray-300 rounded-md shadow-sm focus:ring focus:ring-indigo-200"
+                  [formControlName]="0"
+                  placeholder="Longitude"
+                />
+                <input
+                  type="number"
+                  class="form__input w-1/2 border-gray-300 rounded-md shadow-sm focus:ring focus:ring-indigo-200"
+                  [formControlName]="1"
+                  placeholder="Latitude"
+                />
+              </div>
+
+              <label for="day-{{ i }}" class="block text-sm font-medium mb-1">Day</label>
+              <input
+                id="day-{{ i }}"
+                type="number"
+                class="form__input w-full border-gray-300 rounded-md shadow-sm focus:ring focus:ring-indigo-200"
+                formControlName="day"
+              />
+            </div>
+            <button type="button" class="mt-2 text-red-600" (click)="removeLocation(i)">Remove Location</button>
+          </div>
+        </div>
+        <button type="button" class="mt-2 text-blue-600" (click)="addLocation()">Add Location</button>
+      </div>
+
+      <!-- Submit -->
+      <div class="mt-6 col-span-2 flex justify-center">
+        <button type="submit" class="w-full bg-green-600 text-white py-2 rounded-md shadow-sm hover:bg-green-700">Submit</button>
+      </div>
+    </form>
+  </div>
+</section>
+<app-footer></app-footer>

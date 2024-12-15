@@ -82,7 +82,7 @@ export class ToursComponent implements OnInit {
     { label: 'ALL', value: '' },
     { label: 'Easy', value: 'easy' },
     { label: 'Medium', value: 'medium' },
-    { label: 'Hard', value: 'hard' },
+    { label: 'Hard', value: 'difficult' },
   ];
   ratingOptions = [
     { label: 'All', value: '6' },

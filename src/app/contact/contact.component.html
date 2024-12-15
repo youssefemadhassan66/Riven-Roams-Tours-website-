@@ -1,1 +1,110 @@
-<p>contact works!</p>
+<app-navbar></app-navbar>
+<section class="video-section">
+  <video autoplay muted loop playsinline class="background-video">
+    <source [src]="video" type="video/mp4" />
+  </video>
+  <div class="video-gradient-overlay"></div>
+  <div class="video-section-content">
+    <!-- <fa-icon [icon]="globe"></fa-icon> -->
+    <div>
+      <h1>Contact Us</h1>
+      <p>Join Our Family</p>
+    </div>
+  </div>
+</section>
+
+<section class="Contact-section">
+  <div class="c-container">
+    <h1 class="text-center">Contact us</h1>
+    <div class="Contact-content">
+      <div class="contact-inform">
+        <h1>Get in touch</h1>
+        <p>
+          Tempor erat elitr rebum at clita. Diam dolor <br />
+          diam ipsum sit. Aliqu diam amet diam et eos
+        </p>
+        <ul class="contact-list">
+          <li *ngFor="let card of cards">
+            <div class="icon-container">
+              <fa-icon class="" [icon]="card.icon"></fa-icon>
+            </div>
+            <div class="card-content">
+              <h2>{{ card.title }}</h2>
+              <p>{{ card.description }}</p>
+            </div>
+          </li>
+        </ul>
+      </div>
+
+      <div class="embed-map">
+        <div class="mapswrapper">
+          <iframe
+            width="720"
+            height="400"
+            loading="lazy"
+            allowfullscreen
+            src="https://www.google.com/maps/embed/v1/place?key=AIzaSyBFw0Qbyq9zTFTd-tUY6dZWTgaQzuU17R8&q=cairo&zoom=8&maptype=roadmap"
+          ></iframe
+          ><a href="https://www.fluxaiimagegenerator.net">flux</a
+          ><style>
+            .mapswrapper {
+              background: #fff;
+              position: relative;
+            }
+            .mapswrapper iframe {
+              border: 0;
+              position: relative;
+              z-index: 2;
+            }
+            .mapswrapper a {
+              color: rgba(0, 0, 0, 0);
+              position: absolute;
+              left: 0;
+              top: 0;
+              z-index: 0;
+            }
+          </style>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="send-Message">
+  <div class="c-container">
+    <h1 class="text-center">Send us a message</h1>
+    <form action="">
+      <div class="form-group">
+        <div class="form-group-content">
+          <input type="email" placeholder="Example@gamil.com" class="form__input"  />
+          <input type="text" placeholder="User Name" class="form__input"  />
+        </div>
+      </div>
+      <div class="form-group">
+        <div class="form-group-content">
+          <input type="text" placeholder="subject" class="form__input"  />
+
+        </div>
+      </div>
+      <div class="form-group">
+        <div class="form-group-content">
+          <textarea name="description" class="form__input" cols="5" rows="7"  id="description"></textarea>
+        </div>
+      </div>
+      <input type="submit" value="submit" id="">
+    </form>
+  </div>
+</section>
+
+<app-footer></app-footer>
+
+<!-- <section>
+  <div class="t-container">
+    <div class="header-content">
+        <h1 >Welcome to Your Next Adventure</h1>
+        <p class="text-gray-600">
+          Discover breathtaking destinations and unforgettable experiences curated just for you. Whether you dream of exploring hidden gems, soaking in scenic landscapes, or embarking on thrilling excursions, we’re here to make your travel aspirations a reality. Start your journey today and create memories that last a lifetime.
+        </p>
+    </div>
+  </div>
+</section> -->

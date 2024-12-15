@@ -24,6 +24,7 @@ export interface AuthResponse {
 export class AuthServicesService {
   apiUrl = 'http://localhost:3000/api/v1/users/';
   private tokenSubject: BehaviorSubject<string | null> = new BehaviorSubject<string | null>(null);
+
   private isLocalStorageAvailable = typeof localStorage !== 'undefined';
 
   constructor(private http: HttpClient, private _router: Router) {
@@ -83,11 +84,12 @@ export class AuthServicesService {
   logOut(): void {
     this.tokenSubject.next(null);
     localStorage.removeItem('accessToken');
-    this._router.navigate(['/home']);
+    this._router.navigate(['/login']);
   }
 
   isAuthenticated(): Boolean {
     const token = this.tokenSubject.value;
+    // console.log(`is logged in :  ${token !== null && !this.isTokenExpired(token)}`);
     return token !== null && !this.isTokenExpired(token);
   }
 

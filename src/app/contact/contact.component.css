@@ -1,0 +1,226 @@
+.video-section {
+  position: relative;
+  height: 60vh;
+  overflow: hidden;
+  color: white;
+}
+
+.background-video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -3 !important;
+}
+
+.video-gradient-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.4));
+  /* background: linear-gradient(to top, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0) 50%); */
+  z-index: -2 !important;
+}
+
+.video-section-content {
+  position: absolute;
+  top: 60%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: #ffffff;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+}
+.video-section-content div {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  align-items: center;
+}
+
+.video-section-content div h1 {
+  font-size: 5rem;
+  font-family: 'poopins-bold';
+}
+
+.video-section-content div p {
+  font-size: 1.5rem;
+}
+
+.video-section-content button {
+  padding: 1rem 1rem;
+  width: 25%;
+  font-size: 1rem;
+  color: #fff;
+  background-color: rgb(17, 151, 147);
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.video-section-content button:hover {
+  background-color: rgb(15, 121, 117);
+}
+
+/* Contact Section */
+
+.Contact-section {
+  width: 100%;
+  margin: 30px 0px;
+}
+.c-container {
+  width: 90%;
+  margin: 0 auto;
+}
+.c-container > h1 {
+  font-size: 2.5rem;
+  font-family: 'Poopins-bold';
+  margin-bottom: 20px;
+}
+.Contact-content {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+.contact-inform {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.contact-inform h1 {
+  font-size: 1.8rem;
+  font-family: 'Poopins-bold';
+}
+.contact-inform p {
+  color: #27364dd2;
+  font-family: Arial, Helvetica, sans-serif;
+}
+.contact-list {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.contact-list li {
+  display: flex;
+  gap: 15px;
+}
+
+.contact-list li .icon-container {
+  background-color: rgb(17, 151, 147);
+  color: white !important;
+  width: 55px;
+  height: 55px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.contact-list li fa-icon {
+  font-size: 20px;
+}
+.contact-list li h2 {
+  font-size: 15px;
+  font-family: 'Poopins-semi';
+}
+
+/* Message form */
+.send-Message {
+  width: 100%;
+  margin: 40px 0px;
+}
+
+form {
+  margin-top: 40px;
+  width: 50%;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.form-group {
+  display: flex;
+  flex-direction: column;
+}
+.form-group-content {
+  display: flex;
+  width: 100%;
+  position: relative;
+}
+.form__input {
+  margin-left: 10px;
+  font-size: 1rem;
+  padding: 1rem 1.2rem;
+  width: 100%;
+  border-radius: 5px;
+  background-color: #fff;
+  border: #f1f5f9 solid 2px;
+  -webkit-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+input[type='submit'] {
+  padding: 0.6rem 1.25rem;
+  color: white;
+  border-radius: 10px;
+  background-color: rgb(17, 151, 147);
+  border-radius: 5px;
+  cursor: pointer;
+  transition: all 1s ease;
+}
+
+input[type='submit']:hover {
+  background-color: rgb(12, 104, 101);
+}
+
+.form__input:focus {
+  outline: none;
+  border: 2px solid rgb(214, 194, 139);
+}
+
+.form__input::placeholder {
+  color: #1e293b81;
+}
+
+.about-header {
+  width: 100%;
+  height: 90vh;
+  padding: 2rem 0;
+}
+.about-container {
+  display: flex;
+  justify-content: space-between;
+}
+#header-img {
+  max-width: 40%;
+}
+.t-container {
+  width: 80%;
+  height: 100%;
+  margin: auto;
+}
+.header-content {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.header-content h1 {
+  font-size: 2.5rem;
+  font-family: 'Poopins-semi';
+  background: linear-gradient(109.6deg, rgb(17, 151, 147) 33.2%, rgb(154, 214, 212) 70.4%, rgb(255, 233, 171) 100.2%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+.header-content p {
+  font-size: 15px;
+}

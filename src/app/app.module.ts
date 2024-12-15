@@ -19,6 +19,14 @@ import { MapComponent } from './map/map.component';
 import { ToursComponent } from './tours/tours/tours.component';
 import { TourDetailComponent } from './tours/tour-detail/tour-detail.component';
 import { ContactComponent } from './contact/contact.component';
+import { DashboardComponent } from './dashboard/dashboard/dashboard.component';
+import { NavDashboardComponent } from './dashboard/nav-dashboard/nav-dashboard.component';
+import { CreateNewTourComponent } from './tours/create-new-tour/create-new-tour.component';
+import { UpdateTourComponent } from './tours/update-tour/update-tour.component';
+import { AllDashboardComponent } from './dashboard/all-dashboard/all-dashboard.component';
+import { UserDashboardComponent } from './dashboard/user-dashboard/user-dashboard.component';
+import { BookingDashboardComponent } from './dashboard/booking-dashboard/booking-dashboard.component';
+import { UserOptionsComponent } from './user/user-info/user-options/user-options.component';
 
 @NgModule({
   declarations: [
@@ -33,6 +41,14 @@ import { ContactComponent } from './contact/contact.component';
     ToursComponent,
     TourDetailComponent,
     ContactComponent,
+    DashboardComponent,
+    NavDashboardComponent,
+    CreateNewTourComponent,
+    UpdateTourComponent,
+    AllDashboardComponent,
+    UserDashboardComponent,
+    BookingDashboardComponent,
+    UserOptionsComponent,
   ],
   imports: [
     BrowserModule,

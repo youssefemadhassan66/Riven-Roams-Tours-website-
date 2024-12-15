@@ -1,3 +1,12 @@
+
+interface Guide {
+  _id: string;
+  name: string;
+  email: string;
+  photo: string;
+  role: string;
+}
+
 export interface TourSchema {
   id: string;
   name: string;
@@ -29,5 +38,5 @@ export interface TourSchema {
       description?: string;
       day?: number;
   }[];
-  guides: string[];
+  guides: Guide[];
 }

@@ -1,0 +1,110 @@
+<app-nav-dashboard></app-nav-dashboard>
+
+<!-- <section class="tour-Edit">
+  <div class="container">
+    <h1>Tour Update</h1>
+    <div class="form-container">
+
+    </div>
+  </div>
+</section> -->
+<section class="tour-Edit">
+  <div class="container">
+    <h1>Update Tour</h1>
+    <form [formGroup]="tourForm" (ngSubmit)="onSubmit()">
+      <div class="form-group">
+        <label>Name: <span>{{ Tour?.name }}</span></label>
+
+        <input class="form__input form-control" id="duration" type="text" formControlName="name" />
+      </div>
+      <div class="form-group">
+        <label for="summary"
+          >Summary : <span>{{ Tour?.summary }}</span></label
+        >
+        <input class="form__input form-control" id="duration" type="text" formControlName="summary" />
+      </div>
+      <div class="form-group">
+        <label for="duration"
+          >Duration : <span>{{ Tour?.duration }}</span></label
+        >
+        <input class="form__input form-control" id="duration" type="number" formControlName="duration" />
+      </div>
+      <div class="form-group">
+        <label for="Price"
+          >Price : <span>${{ Tour?.price }}</span></label
+        >
+        <input class="form__input form-control" id="Price" type="number" formControlName="price" />
+      </div>
+      <div class="form-group">
+        <label for="maxGroupSize"
+          >Max Group Size : <span>{{ Tour?.maxGroupSize }}</span></label
+        >
+        <input class="form__input form-control" id="maxGroupSize" type="number" formControlName="maxGroupSize" />
+      </div>
+
+      <div class="form-group">
+        <div class="flex justify-between">
+          <label for="Image Cover"> <span>ImageCover</span></label>
+          <img class="img-cover" [src]="ToursPhotoUrl + Tour?.imageCover" alt="" />
+        </div>
+        <input (change)="onFileChange($event)" class="form__input" type="file" formControlName="imageCover" name="photo" />
+      </div>
+      <div class="form-group">
+        <label for="difficulty"
+          >Difficulty : <span>{{ Tour?.difficulty }}</span></label
+        >
+        <select id="difficulty" class="form-control" formControlName="difficulty">
+          <option value="">Select one</option>
+          <option value="easy">Easy</option>
+          <option value="medium">Medium</option>
+          <option value="difficult">Difficult</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="description">Description</label>
+        <textarea name="description" class="form__input" cols="5" rows="7" formControlName="description" id="description"></textarea>
+      </div>
+      <!-- Other fields -->
+
+      <div class="form-group">
+        <label>Images</label>
+        <div formArrayName="images" class="form-array-list">
+          <div class="" *ngFor="let image of images.controls; let i = index">
+            <input type="file" (change)="onFilesChange($event,i)" [formControlName]="i" class="form-control" />
+            <button type="button" class="form-button" id="danger" (click)="removeImage(i)">Remove</button>
+          </div>
+        </div>
+        <button
+          type="button"
+          class="btn btn-primary bg-white hover:bg-gray-100 text-gray-800 border border-gray-400 rounded shadow form-button"
+          (click)="addImage()"
+        >
+          Add Image
+        </button>
+      </div>
+
+      <div class="form-group form-array-list">
+        <label for="">Start Dates</label>
+        <div formArrayName="startDates" class="form-array-list">
+          <div class="flex gap-12" *ngFor="let date of startDates.controls; let i = index">
+            <input type="date" formControlName="i" class="form-control" [value]="'2024-01-01'" />
+            <button type="button" class="form-button" id="danger" (click)="removeDate(i)">Remove</button>
+          </div>
+          <button
+            type="button"
+            class="btn btn-primary bg-white hover:bg-gray-100 text-gray-800 border border-gray-400 rounded shadow form-button"
+            (click)="addDate()"
+          >
+            Add Date
+          </button>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <input type="submit" />
+      </div>
+    </form>
+  </div>
+</section>
+<app-footer></app-footer>
